@@ -4,6 +4,7 @@ import {
     ref 
 } from 'vue'
 import fetchCount from '../services/fetchCount'
+import ControlBtn from './ControlBtn.vue'
 
 interface CountProps {
     limit: number;
@@ -36,8 +37,8 @@ function incCount(inc: number) {
 <template>
     <div>
         <p>{{ count }}</p>
-        <button @click="incCount(2)">
-            Inc.
-        </button> 
+        <ControlBtn 
+          @inc-count="incCount"
+          @reset-count="count = 0"/>
     </div>
 </template>
